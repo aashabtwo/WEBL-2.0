@@ -1,5 +1,5 @@
 from django.db import models
-
+#from users.models import CustomUser
 #from ..users.models import CustomUser
 # the user models are needed for creating foreign key
 
@@ -20,8 +20,8 @@ class Problems(models.Model):
 
 
 class Submissions(models.Model):
-    #author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    #problem = models.ForeignKey(Problems, on_delete=models.CASCADE)
+    author = models.CharField(max_length=100,default='')
+    problem = models.CharField(max_length=100, default='')
     title = models.TextField(max_length=100, default='Code')
     code = models.FileField(upload_to='uploads/')
 
