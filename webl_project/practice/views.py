@@ -21,7 +21,7 @@ def uploadFile(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'File Upload!')
-            return HttpResponse('File Uploaded!')
+            return redirect('users-dashboard')
     else:
         form = SubmissionsForms()
     return render(request, 'practice/upload.html', {'form':form})
