@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib import messages
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -8,7 +9,13 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
-    return render(request, 'users/home.html')
+    if request.user.is_authenticated:
+        print(request.user)
+        return render(request, 'users/home.html')
+    else:
+        print(request.user)
+        return HttpResponse('you need to log in')
+    
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
