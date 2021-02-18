@@ -35,8 +35,9 @@ def oneProblem(request, pk):
                 # send the code name in the class below
                 # send also the problem name
                 coder = Code(post.code.name, problem.title)
-                coder.check()
-                return redirect('users-dashboard')
+                result = coder.check()
+                return HttpResponse(result)
+                #return redirect('users-dashboard')
                 # run the code against test cases    
         else:
             form = SubmissionsForms()
