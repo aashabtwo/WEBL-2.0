@@ -30,7 +30,11 @@ def oneProblem(request, pk):
                 post.save()
                 print(request.FILES)
                 print(post.code.name)
-                coder = Code(post.code.name)
+                
+                # now run the code against test cases
+                # send the code name in the class below
+                # send also the problem name
+                coder = Code(post.code.name, problem.title)
                 coder.check()
                 return redirect('users-dashboard')
                 # run the code against test cases    
