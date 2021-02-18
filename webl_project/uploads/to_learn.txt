@@ -1,0 +1,19 @@
+# mysql/postgresql
+# database
+	- data replication
+	- sharding strategies
+	- N+1 Problem
+	- ACID
+	- Database normalization
+# Google and Facebook OAuth
+# web security
+	- cors
+	- csrf
+	- owasp security risks
+# search engines
+# message brokers
+# Docker
+# Graphql
+# implementing web servers
+# standards and best practices
+# 

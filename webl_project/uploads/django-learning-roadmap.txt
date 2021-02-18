@@ -1,0 +1,7 @@
+# watch some tutorials to get a certain level of understanding
+# django architecture
+# documentation
+# projects
+	- blog app
+	- chat app
+	- discord clone

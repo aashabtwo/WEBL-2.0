@@ -4,6 +4,9 @@ from django.contrib import messages
 
 from .models import Problems, Submissions
 from .forms import SubmissionsForms
+#from uploads.run import Code
+from .submit import Code
+ 
 # Create your views here.
 def problems(request):
     # query all problems
@@ -12,16 +15,43 @@ def problems(request):
 
 def oneProblem(request, pk):
     problem = Problems.objects.get(id=pk)
-    return render(request, 'practice/index.html', {'problem': problem})
+    # create a dictionary and add the problem query
+    # if the user is logged in, add the form in the dictionary as well
+    context = {
+        'problem':problem
+    }
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = SubmissionsForms(request.POST,request.FILES)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.problem = problem
+                post.save()
+                print(request.FILES)
+                print(post.code.name)
+                coder = Code(post.code.name)
+                coder.check()
+                return redirect('users-dashboard')
+                # run the code against test cases    
+        else:
+            form = SubmissionsForms()
+        context['form'] = form    
+    return render(request, 'practice/index.html', context)
 
-
+"""
 def uploadFile(request):
-    if request.method == 'POST':
-        form = SubmissionsForms(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f'File Upload!')
-            return redirect('users-dashboard')
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = SubmissionsForms(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(request, f'File Upload!')
+                return redirect('users-dashboard')
+        else:
+            form = SubmissionsForms()
+        return render(request, 'practice/upload.html', {'form':form})
     else:
-        form = SubmissionsForms()
-    return render(request, 'practice/upload.html', {'form':form})
+        messages.success(request, 'You need to login in first')
+        return redirect('users')
+"""

@@ -1,0 +1,20 @@
+## Using curl
+Syntax: curl [options] [URL...]
+eg. curl example.com
+
+The command will print the source code of the example.com
+homepage in your terminal window.
+
+If no protocol is specified, curl tries to guess
+the protocol you want to use, and it will default to HTTP.
+
+## Save the output to a File
+To save the result of the curl command, use either the -o or -O option.
+
+Lowercase -o saves the file with a predefined filename,
+which in the example below is vue-v2.6.10.js:
+
+eg. curl -o vue-v2.6.10.js https://cdn.jsdelivr.net/npm/vue/dist/vue.js
+
+Uppercase -O saves the file with its original filename
+e.g. curl -O https://cdn.jsdelivr.net/npm/vue/dist/vue.js

@@ -14,9 +14,12 @@
     <p>{{problem.task}}</p>
     <pre>{{problem.input_content}}</pre>
     <pre>{{problem.output_content}}</pre>
-    <form method="POST">
-        {% csrf_token %}
-        <textarea name="code" id="code" cols="30" rows="10" placeholder="Write your code here..."></textarea>
-    </form>
+    {% if form %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    {% endif %}
 </body>
 </html>

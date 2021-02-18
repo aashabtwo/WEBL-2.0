@@ -1,0 +1,5 @@
+# not separating frontend from back
+# deploying asap
+# deploying to heroku
+# easha -> html, css and basic js
+# 

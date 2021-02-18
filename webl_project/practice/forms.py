@@ -5,4 +5,4 @@ from .models import Submissions
 class SubmissionsForms(forms.ModelForm):
     class Meta:
         model = Submissions
-        fields = ('title', 'code')
+        fields = ('code',)
