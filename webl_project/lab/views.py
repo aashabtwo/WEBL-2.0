@@ -20,7 +20,14 @@ def labOneProblem(request, pk):
         'problem': problem
     }
     if request.method == 'POST':
-        assignment = Assignments.objects.create(problems=problem)
+        assignment = Assignments.objects.create(
+            title=problem.title,
+            description=problem.description,
+            objective=problem.objective,
+            task=problem.task,
+            input_content=problem.input_content,
+            output_content=problem.output_content
+            )
         assignment.save()
         return render(request, 'lab/problems.html', context)
     else:
