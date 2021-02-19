@@ -1,18 +1,37 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import LabProblems, Assignments
+from django.contrib import messages
+
+from .models import LabProblems, Assignments, AssignmentSubmissions
+from .forms import AssignmentSubmissionsForm
 # Create your views here.
 
+
+"""
+    SOME CODES ARE NOT DID NOT MAINTAIN THE
+    DRY PRINCIPLE!
+    BECAUSE I AM STILL GETTING USED TO DJANGO
+    (I DONT EVEN KNOW HOW TO WRITE MIDDLEWARES!)
+    YOU ARE FREE TO JUDGE ME AND I KNOW HOW
+    INCOMPETENT I AM
+
+"""
+
+
+
 def labProblems(request):
-    #return HttpResponse('<h1>Home</h1>')
     # query all lab problems
-    lab_problems = LabProblems.objects.all()
-    context = {
-        'problems': lab_problems
-    }
-    return render(request, 'lab/problems.html', context)
-
-
+    if request.user.is_authenticated:
+        if request.user.position == 'Teacher':
+            lab_problems = LabProblems.objects.all()
+            context = {
+                'problems': lab_problems
+            }
+            return render(request, 'lab/problems.html', context)
+        else:
+            return redirect('practice-problems')
+    else:
+        return redirect('users-dashboard')
 
 def labOneProblem(request, pk):
     problem = LabProblems.objects.get(id=pk)
@@ -34,10 +53,65 @@ def labOneProblem(request, pk):
         return render(request, 'practice/index.html', context)
 
 def labAssignments(request):
-    assignments = Assignments.objects.all()
-    for i in assignments:
-        print(i)
-    context = {
-        'problems': assignments
-    }
-    return render(request, 'lab/problems.html', context)
+    # these are for students
+    # students can view and submit these
+    # check if the user is authenticated, if not, redirect to login page
+    # if it's a teacher, redirect to labs
+    if request.user.is_authenticated:
+        if request.user.position == 'Student':
+            assignments = Assignments.objects.all()
+            if assignments:
+                context = {
+                    'problems': assignments
+            }
+            else:
+                context = {
+                    'alert': "No assignments given yet."
+                }
+            return render(request, 'lab/assignment.html', context)
+        else:
+            return redirect('lab-labproblems')
+    else:
+        # redirect to login page
+        messages.success(request, 'You need to login to first.')
+        return redirect('user-login')
+
+# viewing single assignment
+def oneAssignment(request, pk):
+    # check if the user is authenticated, if not redirect to login page
+    # otherwise, check if the user is a student, let them access if it's so
+    # otherwise redirect to teacher's lab
+    if request.user.is_authenticated:
+        if request.user.position == 'Student':
+            # query assignment according to pk
+            # if assignment doesn't exist, send a message
+            # else, load the problem details and the form
+            assignment = Assignments.objects.get(id=pk)
+            if assignment:
+                context = {
+                    'problem':assignment
+                }
+                if request.method == 'POST':
+                    form = AssignmentSubmissionsForm(request.POST, request.FILES)
+                    if form.is_valid():
+                        post = form.save(commit=False)
+                        post.author = request.user
+                        post.problem = assignment
+                        post.save()
+                        return HttpResponse('Assignment Submitted!')
+                # if it's a GET request, create empty form
+                else:
+                    form = AssignmentSubmissionsForm()
+                # adding form
+                context['form'] = form
+                return render(request, 'lab/submit.html', context)
+            else:
+                return HttpResponse('There is no such page. Sorry')
+        else:
+            # redirect to lab problems
+            # because the user is not a student
+            return redirect('lab-labproblems')
+    else:
+        # redirect to login
+        messages.success(request, 'You need to login to first.')
+        return redirect('user-login')

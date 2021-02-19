@@ -26,6 +26,8 @@ class Assignments(models.Model):
     task = models.TextField(default='')
     input_content = models.TextField(default='')
     output_content = models.TextField(default='')
+    status = models.BooleanField(default=False)
+    
 
     def __str__(self):
         return self.title
