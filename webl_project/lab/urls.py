@@ -5,5 +5,7 @@ urlpatterns = [
     path('', lab_views.labProblems, name='lab-labproblems'),
     path('<str:pk>', lab_views.labOneProblem, name='lab-labproblemone'),
     path('assignments/all', lab_views.labAssignments, name='lab-labassignments'),
-    path('assignments/all/<str:pk>', lab_views.oneAssignment, name='lab-oneassignment')
+    path('assignments/all/<str:pk>', lab_views.oneAssignment, name='lab-oneassignment'),
+    path('submissions/all', lab_views.submittedAssignments, name='lab-submissions'),
+    path('submissions/all/<str:pk>', lab_views.oneSubmission, name='lab-onesubmission')
 ]

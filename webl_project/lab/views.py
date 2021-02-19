@@ -8,7 +8,7 @@ from .forms import AssignmentSubmissionsForm
 
 
 """
-    SOME CODES ARE NOT DID NOT MAINTAIN THE
+    SOME CODES ARE DID NOT MAINTAIN THE
     DRY PRINCIPLE!
     BECAUSE I AM STILL GETTING USED TO DJANGO
     (I DONT EVEN KNOW HOW TO WRITE MIDDLEWARES!)
@@ -51,6 +51,32 @@ def labOneProblem(request, pk):
         return render(request, 'lab/problems.html', context)
     else:
         return render(request, 'practice/index.html', context)
+
+# for teachers to see the submissions
+def submittedAssignments(request):
+    # query all the submissions
+    # if there are none, send an according message
+    submissions = AssignmentSubmissions.objects.all()
+    # checking if there any submissions at all
+    if submissions:
+        context = {
+            'submissions':submissions
+        }
+        return render(request, 'lab/submissions.html', context)
+
+# check single assignment
+def oneSubmission(request, pk):
+    # query the submission
+    submission = AssignmentSubmissions.objects.get(id=pk)
+    if submission:
+        code = submission.code
+        code = code.read().decode('utf-8')
+        context = {
+            'submission':submission,
+            'code':code
+        }
+        return render(request, 'lab/singlesubmission.html', context)
+
 
 def labAssignments(request):
     # these are for students
