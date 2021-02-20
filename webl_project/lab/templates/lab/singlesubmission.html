@@ -19,7 +19,14 @@
     <pre>
         {{code}}
     </pre>
-    <a href="{{i.id}}">Check</a>
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="remarks" id="remarks" cols="30" rows="10" placeholder="Remarks..."></textarea>
+        <div>
+            <button type="submit" name="accepted">Accept</button>
+            <button type="submit" name="rejected">Reject</button>
+        </div>
+    </form>
     
 </body>
 </html>

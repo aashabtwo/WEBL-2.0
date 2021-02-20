@@ -7,16 +7,19 @@
     <title>Practice</title>
 </head>
 <body>
+    {% if accepted_submissions %}
+        <h2>Approved Assignments</h2>
+        {% for accepted in accepted_submissions %}
+            <h3>{{ accepted.problem.title }}</h3>
+            <h5><p>{{ accepted.teachers_remarks }}</p></h5>
+        {% endfor %}
+    {% endif %}
     {% if problems %}
+        <h2>Assignments</h2>
         {% for i in problems %}
             <h3>{{i.title}}</h3>
             <h5>{{i.description}}</h5>
             <div>
-                {% if i.status %}
-                    <h5>COMPLETE</h5>
-                {% else %}
-                    <h5>Due</h5>
-                {% endif %} 
                 <a href="all/{{i.id}}">Solve</a>
             </div>
             <form action="{{i.id}}" method="POST">

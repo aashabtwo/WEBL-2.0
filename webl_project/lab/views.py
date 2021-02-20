@@ -8,7 +8,7 @@ from .forms import AssignmentSubmissionsForm
 
 
 """
-    SOME CODES ARE DID NOT MAINTAIN THE
+    SOME CODES DID NOT MAINTAIN THE
     DRY PRINCIPLE!
     BECAUSE I AM STILL GETTING USED TO DJANGO
     (I DONT EVEN KNOW HOW TO WRITE MIDDLEWARES!)
@@ -66,16 +66,31 @@ def submittedAssignments(request):
 
 # check single assignment
 def oneSubmission(request, pk):
-    # query the submission
     submission = AssignmentSubmissions.objects.get(id=pk)
     if submission:
-        code = submission.code
-        code = code.read().decode('utf-8')
-        context = {
-            'submission':submission,
-            'code':code
-        }
-        return render(request, 'lab/singlesubmission.html', context)
+        if request.method == 'POST':
+            remarks = request.POST.get('remarks')
+            if 'accepted' in request.POST:
+                # take the remarks
+                # update the submission model to mark it as accepted
+                # update teachers_remarks if given any
+                submission.approved = True
+                submission.teachers_remarks = remarks
+                submission.reviewed = True
+                submission.save()
+                return HttpResponse('Accepted')
+            elif 'rejected' in request.POST:
+                # same but do not mark this submission as accepted
+                return HttpResponse('Rejected!')
+        else:
+            # query the submission
+            code = submission.code
+            code = code.read().decode('utf-8')
+            context = {
+                'submission':submission,
+                'code':code
+            }
+            return render(request, 'lab/singlesubmission.html', context)
 
 
 def labAssignments(request):
@@ -86,14 +101,21 @@ def labAssignments(request):
     if request.user.is_authenticated:
         if request.user.position == 'Student':
             assignments = Assignments.objects.all()
+            # query rejected assignments
+            rejected_submissions = AssignmentSubmissions.objects.filter(reviewed=True, approved=False)
+            accepted_submissions = AssignmentSubmissions.objects.filter(reviewed=True, approved=True)
             if assignments:
                 context = {
-                    'problems': assignments
+                    'problems': assignments,
+                    'rejected_submissions': rejected_submissions,
+                    'accepted_submissions': accepted_submissions
             }
             else:
                 context = {
                     'alert': "No assignments given yet."
                 }
+            for sub in accepted_submissions:
+                print(sub.problem.title)
             return render(request, 'lab/assignment.html', context)
         else:
             return redirect('lab-labproblems')
@@ -141,3 +163,7 @@ def oneAssignment(request, pk):
         # redirect to login
         messages.success(request, 'You need to login to first.')
         return redirect('user-login')
+
+# CHECKING REJECTED SUBMISSIONS
+# for students
+#def rejectedSubmissions(request, pk):
