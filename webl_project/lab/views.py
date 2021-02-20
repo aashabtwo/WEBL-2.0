@@ -81,6 +81,9 @@ def oneSubmission(request, pk):
                 return HttpResponse('Accepted')
             elif 'rejected' in request.POST:
                 # same but do not mark this submission as accepted
+                submission.teachers_remarks = remarks
+                submission.reviewed = True
+                submission.save()
                 return HttpResponse('Rejected!')
         else:
             # query the submission
@@ -116,6 +119,8 @@ def labAssignments(request):
                 }
             for sub in accepted_submissions:
                 print(sub.problem.title)
+            for s in rejected_submissions:
+                print(s.teachers_remarks)
             return render(request, 'lab/assignment.html', context)
         else:
             return redirect('lab-labproblems')
@@ -166,4 +171,49 @@ def oneAssignment(request, pk):
 
 # CHECKING REJECTED SUBMISSIONS
 # for students
-#def rejectedSubmissions(request, pk):
+def rejectedSubmissions(request, pk):
+    # check if the user is authenticated
+    # redirect to login if not
+    # otherwise check if it is a student
+    # redirect to labs if not
+    if request.user.is_authenticated:
+        # check if the user is a student
+        if request.user.position == 'Student':
+            rejected_submission = AssignmentSubmissions.objects.get(id = pk)
+            code = rejected_submission.code
+            code = code.read().decode('utf-8')
+            context = {
+                'rejected_submission':rejected_submission,
+                'code':code
+            }
+            return render(request, 'lab/rejects.html', context)
+        else:
+            # redirect to labs
+            return redirect('lab-labproblems')
+    else:
+        return redirect('user-login')
+
+## Accepted Assignments
+## for students
+def acceptedSubmissions(request, pk):
+    # check if the user is authenticated
+    # redirect to login if not
+    # otherwise check if it is a student
+    # redirect to labs if not
+    if request.user.is_authenticated:
+        # check if the user is a student
+        if request.user.position == 'Student':
+            accepted_submission = AssignmentSubmissions.objects.get(id = pk)
+            code = accepted_submission.code
+            code = code.read().decode('utf-8')
+            context = {
+                'accepted_submission':accepted_submission,
+                'code':code
+            }
+            return render(request, 'lab/accepted.html', context)
+        else:
+            # redirect to labs
+            return redirect('lab-labproblems')
+    else:
+        return redirect('user-login')
+

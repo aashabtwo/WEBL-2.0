@@ -12,6 +12,15 @@
         {% for accepted in accepted_submissions %}
             <h3>{{ accepted.problem.title }}</h3>
             <h5><p>{{ accepted.teachers_remarks }}</p></h5>
+            <a href="http://127.0.0.1:8000/lab/accepted/one/{{accepted.id}}">CHECK</a>
+        {% endfor %}
+    {% endif %}
+    {% if rejected_submissions %}
+        <h2>Rejected Assignments</h2>
+        {% for reject in rejected_submissions %}
+            <h3>{{ reject.problem.title }}</h3>
+            <h5><p>{{ reject.teachers_remarks }}</p></h5>
+            <a href="http://127.0.0.1:8000/lab/rejects/one/{{reject.id}}">CHECK</a>
         {% endfor %}
     {% endif %}
     {% if problems %}
