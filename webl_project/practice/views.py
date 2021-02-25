@@ -4,7 +4,6 @@ from django.contrib import messages
 
 from .models import Problems, Submissions
 from .forms import SubmissionsForms
-#from uploads.run import Code
 from .submit import Code
  
 # Create your views here.
@@ -22,6 +21,14 @@ def oneProblem(request, pk):
     }
     if request.user.is_authenticated:
         if request.method == 'POST':
+            # take the submitted form
+            # save the form in the db
+            # add the user and problem (as they are the foreign keys)
+            # create a "Code" instance and run the code
+            # add the results to the "context" dictionary
+            # redirect/reload this page
+            
+            ### THIS CHANGES ARE YET TO BE IMPLEMENTED!
             form = SubmissionsForms(request.POST,request.FILES)
             if form.is_valid():
                 post = form.save(commit=False)
@@ -36,9 +43,10 @@ def oneProblem(request, pk):
                 # send also the problem name
                 coder = Code(post.code.name, problem.title)
                 result = coder.check()
-                return HttpResponse(result)
-                #return redirect('users-dashboard')
-                # run the code against test cases    
+                # receive the array
+                # send the array in the context
+                # the result will carry an array and 
+                return HttpResponse(result)   
         else:
             form = SubmissionsForms()
         context['form'] = form    

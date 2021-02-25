@@ -24,3 +24,4 @@ class Submissions(models.Model):
     problem = models.ForeignKey(Problems, on_delete=models.CASCADE)
     #title = models.TextField(max_length=100, default='Code')
     code = models.FileField(upload_to='uploads/')
+    passed = models.BooleanField(default=False)

@@ -1,12 +1,5 @@
 from django.db import models
 from users.models import CustomUser
-# Create your models here.
-#class LabClass(models.Model):
-#    lab_name = models.CharField(max_length=100, default='Programming Lab')
-#    users = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-#
-#    def __str__(self):
-#        return self.lab_name
 
 class LabProblems(models.Model):
     title = models.CharField(max_length=150)
