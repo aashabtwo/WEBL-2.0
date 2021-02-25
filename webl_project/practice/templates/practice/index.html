@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ problem.head }}</title>
 </head>
 <body>
+    <div>
+        {% if test_results %}
+            {% if judgement %}
+                <h5 class="text-success">SUCCESS</h5>
+                    <div>
+                        {% for i in test_results %}
+                            <div class="p-3 mb-3 bg-success text-white">{{ i }}</div>
+                        {% endfor %}
+                    </div>
+            {% else %}
+                <h5 class="text-danger">FAILURE</h5>
+                    <div>
+                        {% for i in test_results %}
+                            <div class="p-3 mb-3 bg-danger text-white">
+                                {{ i }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                
+            {% endif %}
+        {% endif %}
+    </div>
     <!-- <h2>{{problem.head}}</h2> -->
     <h3>{{problem.title}}</h3>
     <h6>{{problem.description}}</h6>

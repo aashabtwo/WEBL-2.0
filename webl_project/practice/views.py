@@ -43,10 +43,15 @@ def oneProblem(request, pk):
                 # send also the problem name
                 coder = Code(post.code.name, problem.title)
                 result = coder.check()
+                judgement = result[-1]
+                result.pop()
                 # receive the array
                 # send the array in the context
-                # the result will carry an array and 
-                return HttpResponse(result)   
+                # the result will carry an array and
+                context['test_results'] = result
+                context['form'] = form
+                context['judgement'] = judgement
+                return render(request, 'practice/index.html', context)
         else:
             form = SubmissionsForms()
         context['form'] = form    
