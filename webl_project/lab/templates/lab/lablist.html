@@ -1,0 +1,273 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab list</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'lab/lab.css' %}"> 
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+    <header>
+
+    </header>
+          
+           <!-- Navigation -->
+           
+           
+           <nav class="navbar navbar-expand-sm border-bottom shadow-sm nav1 navbar-light p-3 ml-auto">
+            <div class="container-fluid">
+               
+              <a href="homepage.html" class="navbar-brand">
+                <!-- Logo Image -->
+                <img src="{% static 'lab/webllogo.png' %}" width="45" alt="" class="d-inline-block align-middle mr-2">
+                <img src="{% static 'lab/weblname.png' %}" width="95" alt="" class="d-inline-block align-middle mr-2">
+                <!-- Logo Text -->
+                <!--<span class="text-uppercase font-weight-bold">Company</span>-->
+              </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+    
+              
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item pl-2 active ">
+                  <a class="nav-link " href="homepage.html" id="nt">Home</a>
+                </li>
+                <li class="nav-item pl-2 ">
+                  <a class="nav-link" href="#" id="nt">About</a>
+                </li>
+                <li class="nav-item pl-2">
+                  <a class="nav-link " href="#" id="nt">Labs</a>
+                </li>
+                <li class="nav-item pl-2">
+                    <a class="nav-link" href="#" id="nt">Contact</a>
+                  </li>    
+              </ul>
+              
+            <a id="log-in" class="btn btn-primary my-2 my-sm-0 " href="login.html">Profile</a> 
+            </div> 
+        </div>
+            
+        </nav>
+
+       
+   
+    <main>
+        <div class="container-fluid ">
+            <h2 class="text-light text-center p-3" id="cheading">C Programming Lab</h2>
+        </div>
+        <div class="container" id="lab">
+
+            <div class="row">
+                      <div class=" col-lg 3 col-md-3 col-sm-12 col-xs-12 fullcard">
+                      <div class="card">
+                        
+                        <div class="card-block text-center">
+                          <h4 class="card-title text-center bg-light" ><a href="#" class="nav-link cardtitle" >1.Data types & Variables, I/O statements</a></h4>
+                          <p class="card-text">This experiment shows the basics of C program construction with the fundamental knowledge of data types, variables and I/O (Input/Output) statements through various simple problems.
+                        </p>
+                        <p class="obj">Objectives of this experiment are:</p>
+                        <p class="obj-des">1. To understand the basic idea of programming and fundamentals of C programming.
+                        </p>
+                         
+                      </div>
+                      </div>
+                  </div>
+          
+                  <div class="col-lg 3 col-md-3  col-sm-12 col-xs-12">
+                      <div class="card card-inverse card-primary text-center">
+                        
+                        <div class="card-block">
+                          <h4 class="card-title bg-light"><a href="#" class="nav-link cardtitle">2.Control statements structures</a></h4>
+                          <p class="card-text">This experiment shows the execution of programs which use conditional statements such as if, else-if, nested else-if, switch, GoTo.
+                        </p>
+                          <p class="obj">Objectives of this experiment are:</p>
+                          <p class="obj-des">1. To learn how decision making is done while programming.
+                          <p class="obj-des">2. To learn the control statements structures.</p>
+                            
+                          
+                      </div>
+                    </div>
+          
+                  
+                      </div>
+                  </div>
+          
+              </div>
+          
+          </div>
+          <div class="container" id="lab">
+
+            <div class="row">
+                      <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12">
+                      <div class="card">
+                        
+                        <div class="card-block text-center">
+                          <h4 class="card-title text-center bg-light" ><a href="#" class="nav-link cardtitle" >3.Loops
+                          </a></h4>
+                          <p class="card-text">This experiment shows the execution of programs which use loops to avoid repetition. This experiment covers for loops, while loops, nested for loops and do
+
+                        </p>
+                        <p class="obj">Objectives of this experiment are:</p>
+                        <p class="obj-des">1. To learn how to do repetitive tasks using various looping statements.
+
+                        </p>
+                         
+                      </div>
+                      </div>
+                  </div>
+          
+                  <div class="col-lg 3 col-md-3  col-sm-12 col-xs-12">
+                      <div class="card card-inverse card-primary text-center">
+                        
+                        <div class="card-block">
+                          <h4 class="card-title bg-light"><a href="#" class="nav-link cardtitle">4.Expressions</a></h4>
+                          <p class="card-text">
+
+                             This experiment demonstrates the automatic evaluation of expressions involving arithmetic and logical operators.
+                            
+                        </p>
+                          <p class="obj">Objectives of this experiment are:</p>
+                          <p class="obj-des">1. To learn about different types of operators.
+                          <p class="obj-des">2. To learn about the precedence of the operators.
+                          </p>
+                          <p class="obj-des">3. To learn how to evaluate an expression.
+
+                          </p>
+                            
+                          
+                      </div>
+                    </div>
+          
+                  
+                      </div>
+                  </div>
+          
+              </div>
+          
+          </div>
+          <div class="container" id="lab">
+
+            <div class="row">
+                      <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12">
+                      <div class="card">
+                        
+                        <div class="card-block text-center">
+                          <h4 class="card-title text-center bg-light" ><a href="#" class="nav-link cardtitle" >5.Arrays & Pointers</a></h4>
+                          <p class="card-text"> This experiment demonstrates the fundamentals of array and pointer. The similarity and use cases of array and pointers are also demonstrated in this experiment.
+                        </p>
+                        <p class="obj">Objectives of this experiment are:</p>
+                        <p class="obj-des">1. To learn how to use arrays for storing large amounts of data.
+
+                        </p>
+                        <p class="obj-des">2. To understand the concept of memory address associated with every variable.
+
+
+                        </p>
+                        <p class="obj-des">3. To understand pointer referencing and dereferencing.
+
+
+                        </p>
+                        <p class="obj-des">4. To understand how pointers are useful in dynamic allocation of memory.
+
+
+                        </p>
+                         
+                      </div>
+                      </div>
+                  </div>
+          
+                  <div class="col-lg 3 col-md-3  col-sm-12 col-xs-12">
+                      <div class="card card-inverse card-primary text-center">
+                        
+                        <div class="card-block">
+                          <h4 class="card-title bg-light"><a href="#" class="nav-link cardtitle">6.Function & Recursion</a></h4>
+                          <p class="card-text"> This experiment includes the fundamentals of functions and their calling procedure. Recursion is also included which is the process of repeating items in a self-similar way.
+
+                        </p>
+                          <p class="obj">Objectives of this experiment are:</p>
+                          <p class="obj-des">1. To understand that a big program can be broken up into independent modules
+                          <p class="obj-des">2. To solve such problems using recursive procedures.
+                          </p>
+                          <p class="obj-des">3. To learn to define functions and call them with appropriate parameters.
+
+                          </p>
+                            
+                          
+                      </div>
+                    </div>
+          
+                  
+                      </div>
+                  </div>
+          
+              </div>
+          
+          </div>
+          <div class="row">
+            
+<!--
+        <div class="col-lg 3 col-md-3  col-sm-12 col-xs-12">
+            <div class="card card-inverse card-primary text-center">
+              
+              <div class="card-block">
+                <h4 class="card-title bg-light"><a href="#" class="nav-link cardtitle">7.Structure & File</a></h4>
+                <p class="card-text"> This experiment demonstrates the use of structures within a program. Using file for input as well as saving output is also included in this experiment.
+
+
+              </p>
+                <p class="obj">Objectives of this experiment are:</p>
+                <p class="obj-des">1. To understand how to use structures as a compound datatype.
+
+                <p class="obj-des">2. To be able to design structures according to your requirement.
+
+                </p>
+                <p class="obj-des">3. To understand when structures are better data structures than arrays.
+
+
+                </p>
+                <p class="obj-des">4. To be able to use files for inputs and to save outputs.
+
+
+                </p>
+                  
+                
+            </div>
+          </div>
+
+        
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+-->
+       
+    </main>
+
+    <footer class="bg-light text-center text-lg-start footer">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #003c62;">
+        © 2020 Copyright:
+        <a class="text-light" href="homepage.html">WebL</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+     
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

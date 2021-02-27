@@ -22,6 +22,17 @@ path = os.getcwd()
 parent_path = os.path.abspath(os.path.join(path, os.pardir))
 assignment_submission_path = parent_path + '/webl_project/assignmentSubmissions/'
 
+
+
+
+# lab list
+def list(request):
+    return render(request, 'lab/lablist.html')
+def pick(request):
+    return render(request, 'lab/Clab.html')
+
+
+
 def labProblems(request):
     # query all lab problems
     if request.user.is_authenticated:

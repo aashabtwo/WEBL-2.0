@@ -1,0 +1,59 @@
+body{
+    font-family: 'Poppins', sans-serif; 
+}
+#nt{
+    color: #003c62;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+}
+#nt:hover{
+    color:#003c62c9;
+}
+#log-in{
+    background-color: #003c62;
+    border:#003c62;
+    color:#fff;
+}
+#log-in:hover{
+    background-color: #003c62a9;
+}
+.responsive {
+    width: 100%;
+    
+    height: auto;
+    
+  }
+.background{
+    background: #003c62;
+}
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:300%;
+    font-weight:600;
+  }
+.centered-below{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+}
+.cta{
+    color:#003c62;
+    font-weight: 600;
+    font-size: 110%;
+}
+.cta:hover{
+    background:#fff;
+}
+.footer{
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    color:#fff;
+}

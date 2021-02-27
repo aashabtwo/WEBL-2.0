@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views as lab_views
 urlpatterns = [
+    path('c/pick', lab_views.pick, name='lab-labpick'),
+    path('c/lablist', lab_views.list, name='lab-lablist'),
     path('', lab_views.labProblems, name='lab-labproblems'),
     path('<str:pk>', lab_views.labOneProblem, name='lab-labproblemone'),
     path('assignments/all', lab_views.labAssignments, name='lab-labassignments'),

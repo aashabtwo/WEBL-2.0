@@ -9,9 +9,12 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
+    return render(request, 'users/home2.html')
+
+def dashboard(request):
     if request.user.is_authenticated:
         print(request.user)
-        return render(request, 'users/home.html')
+        return render(request, 'users/dashboard.html')
     else:
         print(request.user)
         return HttpResponse('you need to log in')
