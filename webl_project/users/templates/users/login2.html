@@ -1,0 +1,117 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'users/main.css' %}">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+    <header>
+
+    </header>
+          
+           <!-- Navigation -->
+           <!--login-->
+           <!--img-->
+           
+           <nav class="navbar navbar-expand-sm border-bottom shadow-sm nav1 navbar-light p-3 ml-auto">
+        <div class="container-fluid">
+               
+            <a href="#" class="navbar-brand">
+                <!-- Logo Image -->
+                <img src="{% static 'users/webllogo.png' %}" width="45" alt="" class="d-inline-block align-middle mr-2">
+                <img src="{% static 'users/weblname.png' %}" width="95" alt="" class="d-inline-block align-middle mr-2">
+            <!-- Logo Text -->
+            <!--<span class="text-uppercase font-weight-bold">Company</span>-->
+                </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+    
+              
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item pl-2 active ">
+                        <a class="nav-link " href="#" id="nt">Home</a>
+                    </li>
+                    <li class="nav-item pl-2 ">
+                        <a class="nav-link" href="#" id="nt">About</a>
+                    </li>
+                    <li class="nav-item pl-2">
+                        <a class="nav-link " href="#" id="nt">Labs</a>
+                    </li>
+                    <li class="nav-item pl-2">
+                        <a class="nav-link" href="#" id="nt">Contact</a>
+                    </li>    
+                </ul>
+              
+                <a id="log-in" class="btn btn-primary my-2 my-sm-0 " href="#">Log in</a> 
+            </div> 
+        </div>
+            
+        </nav>
+
+       
+   
+    <main>
+        <!-- Log in to your an account -->
+     
+        <div class="container" id="login-form">
+            <div class="row justify-content-center">
+            <div class="col-md-5">
+             <div class="card shawdow-sm" style="border-color: #003c62;">
+               <h2 class="card-title text-center card-title my-3">Log in </h2>
+                <div class="card-body py-md-4">
+
+
+                    <form method="POST">
+                        {% csrf_token %}
+                  
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                        </div>
+                  
+                                      
+                                    
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                        </div>
+             
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                
+                            <button id="login-button" class="btn btn-primary" type="submit">Login</button>
+                        </div>
+                    </form>
+               </div>
+            </div>
+          </div>
+          </div>
+          </div>
+
+       
+    </main>
+
+    <footer class="bg-light text-center text-lg-start footer">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #003c62;">
+        © 2020 Copyright:
+        <a class="text-light" href="homepage.html">WebL</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+     
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

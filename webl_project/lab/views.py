@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 
+import os
+
 from .models import LabProblems, Assignments, AssignmentSubmissions
 from .forms import AssignmentSubmissionsForm
 # Create your views here.
@@ -16,8 +18,9 @@ from .forms import AssignmentSubmissionsForm
     INCOMPETENT I AM
 
 """
-
-
+path = os.getcwd()
+parent_path = os.path.abspath(os.path.join(path, os.pardir))
+assignment_submission_path = parent_path + '/webl_project/assignmentSubmissions/'
 
 def labProblems(request):
     # query all lab problems
@@ -66,11 +69,30 @@ def submittedAssignments(request):
 
 # check single assignment
 def oneSubmission(request, pk):
+    # check if the user is authenticated
+    # if not redirect to login page
+    # if the authenticated user is a student
+    # redirect to assignments page for students
     submission = AssignmentSubmissions.objects.get(id=pk)
     if submission:
         if request.method == 'POST':
-            remarks = request.POST.get('remarks')
+            # if 'run_code' in request.post
+            # define the assignment submissions path
+            # run the code
+            # add the code results to the context
+            # display the code results to the teacher
+            if 'runcode' in request.POST:
+                code_name = submission.code.name
+                try:
+                    compile_code = os.popen('gcc -lm ' + assignment_submission_path + code_name)
+                    execute_code = os.popen('./a.out < ' + assignment_submission_path+'sol.txt')
+                    print(execute_code)
+                    return HttpResponse(execute_code)
+                except Exception as e:
+                    return HttpResponse(e)
+
             if 'accepted' in request.POST:
+                remarks = request.POST.get('remarks')
                 # take the remarks
                 # update the submission model to mark it as accepted
                 # update teachers_remarks if given any
@@ -80,6 +102,7 @@ def oneSubmission(request, pk):
                 submission.save()
                 return HttpResponse('Accepted')
             elif 'rejected' in request.POST:
+                remarks = request.POST.get('remarks')
                 # same but do not mark this submission as accepted
                 submission.teachers_remarks = remarks
                 submission.reviewed = True

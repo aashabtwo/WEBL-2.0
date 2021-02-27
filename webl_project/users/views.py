@@ -40,7 +40,7 @@ def loginUser(request):
             return redirect('users-dashboard')
         else:
             messages.success(request, 'Username or password did not match')
-    return render(request, 'users/login.html')
+    return render(request, 'users/login2.html')
 
 
 def logoutUser(request):

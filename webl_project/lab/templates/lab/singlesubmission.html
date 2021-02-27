@@ -19,6 +19,13 @@
     <pre>
         {{code}}
     </pre>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" name="runcode">Run Code</button>
+        </form>
+    </div>
+    <div>'      '</div>
     <form method="POST">
         {% csrf_token %}
         <textarea name="remarks" id="remarks" cols="30" rows="10" placeholder="Remarks..."></textarea>
