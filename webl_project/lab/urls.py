@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views as lab_views
 urlpatterns = [
+    path('c/exp1', lab_views.theory, name='lab-exp1'),
     path('c/pick', lab_views.pick, name='lab-labpick'),
     path('c/lablist', lab_views.list, name='lab-lablist'),
     path('', lab_views.labProblems, name='lab-labproblems'),

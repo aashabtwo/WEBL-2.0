@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>  
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/dashboard.css' %}">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -67,7 +67,7 @@
                         <div class="card-block text-center">
                           <h4 class="card-title" ><a href="#" class="nav-link" id="card-title">C Programming Lab</a></h4>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary" id="button">Go to Lab</a>
+                          <a href="{% url 'lab-labpick' %}" class="btn btn-primary" id="button">Go to Lab</a>
                       </div>
                       </div>
                   </div>

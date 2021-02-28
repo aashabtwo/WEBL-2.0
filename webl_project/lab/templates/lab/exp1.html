@@ -1,0 +1,168 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Experiment 1</title>
+
+    <link rel="stylesheet" href="{% static 'lab/exp1.css' %}">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+    <header>
+
+    </header>
+          
+           <!-- Navigation -->
+           
+           
+           <nav class="navbar navbar-expand-sm border-bottom shadow-sm nav1  p-3 ml-auto">
+            <div class="container-fluid">
+               
+              <a href="homepage.html" class="nav-link text-light">
+                <!-- Logo Image -->
+               <h2> C Programming Lab</h2> 
+                <!-- Logo Text -->
+                <!--<span class="text-uppercase font-weight-bold">Company</span>-->
+              </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+    
+              
+              <ul class="navbar-nav m-auto">
+                <li class="nav-item pl-2 active" style="border-right: 1.5px solid white">
+                  <a class="nav-link " href="#" id="nt">Lab Manual</a>
+                </li>
+                <li class="nav-item pl-2 " style="border-right: 1.5px solid white">
+                  <a class="nav-link" href="#" id="nt">Practice</a>
+                </li>
+                <li class="nav-item pl-2">
+                  <a class="nav-link " style="border-right: 1.5px solid white" href="#" id="nt">Lab Experiment</a>
+                </li>
+                <li class="nav-item pl-2">
+                    <a class="nav-link" href="#" id="nt">Quiz</a>
+                  </li> 
+                     
+              </ul>
+              
+              <a  href="#"><button class="btn btn-primary"><i class="fa fa-fw fa-home"></i> Home</button></a>
+            </div> 
+        </div>
+            
+        </nav>
+
+       
+   
+    <main>
+    <!--    
+       <div class="container ml-4">
+        <div class="nav flex-column nav-pills col-md-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-introduction-tab" data-toggle="pill" href="#v-pills-introduction" role="tab" aria-controls="v-pills-introduction" aria-selected="true">Introduction</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+          </div>
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">This is Introdcution</div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+          </div>
+       </div>
+
+    -->
+    <div class="row">
+       <div class="col-lg-2 visible-lg lab-index">
+         <ul class="nav nav-pills nav-stacked d-inline-block mx-4">
+             <li class="active btn">
+                 <a href="#intro">Introduction</a>
+             </li>
+             <li class="active btn">
+                <a href="#theory">Theory</a>
+            </li>
+            <li class="active btn">
+                <a href="#obj">Objective</a>
+            </li>
+            <li class="active btn">
+                <a href="#man">Manual</a>
+            </li>
+            <li class="active btn">
+                <a href="#proc">Procedure</a>
+            </li>
+            <li class="active btn">
+                <a href="#further-reading">Further Reading</a>
+            </li>
+         </ul>  
+       </div>
+       <div class="col-lg-10 lab-manual justify pt-2 pr-4">
+           <div class="manual-section" id="intro">
+               <p class="manual-section-title" style="color:#003c62; ">Introduction</p>
+               <hr>
+               <div class="manual-section-description  ">
+                   <p>
+                    The C programming language is a general purpose programming language, which relates closely to the way machines work. Understanding how computer memory works is an important aspect of the C programming language. C is in fact a very simple and common language, with very powerful capabilities. C is used in many applications such as Windows, the Python interpreter, Git, and many many more. C is a compiled language - which means that in order to run it, the compiler (for example, GCC or Visual Studio) must take the code that we wrote, process it, and then create an executable file. This file can then be executed, and will do what we intended for the program to do.
+ 
+                  </p>
+               </div>
+           </div>
+           <div class="manual-section" id="theory">
+               <p class="manual-section-title " style="color:#003c62; ">Theory</p>
+               <hr>
+               <div class="manual-section-description">
+                   <p>
+                    Our first program
+                    Every C program uses libraries, which give the ability to execute necessary functions. For example, the most basic function called printf, which prints to the screen, is defined in the stdio.h header file.
+                    To add the ability to run the printf command to our program, we must add the following include directive to our first line of the code:
+                    <pre style="background:antiquewhite">#include &ltstdio.h&gt</pre>
+
+
+
+                  </p>
+                  <p>
+                    The second part of the code is the actual code which we are going to write. The first code which will run will always reside in the main function.
+                    <pre style="background:antiquewhite" > int main() {
+                      ... our code goes here
+                    }</pre>
+                   
+                    
+                    The int keyword indicates that the function main will return an integer - a simple number. The number which will be returned by the function indicates whether the program that we wrote worked correctly. If we want to say that our code was run successfully, we will return the number 0. A number greater than 0 will mean that the program that we wrote failed.
+                    For this tutorial, we will return 0 to indicate that our program was successful:
+                    return 0;
+                    
+                    Notice that every line in C must end with a semicolon, so that the compiler knows that a new line has started.
+                    Last but not least, we will need to call the function printf to print our senten
+                  </p>
+                  <br>
+                  
+               </div>
+           </div>
+       </div>
+
+    </div>
+       
+    </main>
+
+    <footer class="bg-light text-center text-lg-start footer">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #003c62;">
+        © 2020 Copyright:
+        <a class="text-light" href="homepage.html">WebL</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+     
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

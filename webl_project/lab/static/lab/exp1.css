@@ -1,0 +1,86 @@
+body{
+    font-family: 'Poppins', sans-serif; 
+}
+.nav1{
+    background: #003c62;
+    color:#fff;
+}
+
+#nt{
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+}
+#nt:hover{
+    color:#ffffffc5;
+}
+
+#lab{
+    margin-top:4em;
+}
+
+#log-in{
+    background-color: #003c62;
+    border:#003c62;
+    color:#fff;
+}
+#log-in:hover{
+    background-color: #003c62a9;
+}
+
+.cardtitle{
+    color:#fff;
+    background-color: #003c62;
+    box-shadow: 0 6px 6px -6px black;
+}
+#cheading{
+    background-color: #003c62;
+    padding-left: 1em;
+
+}
+.card{
+    width:100%;
+    height:100%;
+    padding-bottom: 1em;
+   
+}
+.fullcard{
+    margin-bottom: 5px;
+
+}
+.card-text{
+    text-align:left;
+    padding-left:1em;
+}
+.obj{
+    font-style: italic;
+    text-align: left;
+    padding-left:1em;
+    color:#003c62;
+}
+.obj-des{
+    text-align: left;
+    padding-left:1em;
+}
+.sidebar{
+    background: #003c62;
+    color: #fff;
+    text-decoration: none;
+}
+#button{
+    color:#fff;
+    background-color: #003c62;
+    border:#003c62;
+}
+#button:hover{
+    background-color: #003c62a9;
+}
+
+.footer{
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    color:#fff;
+}

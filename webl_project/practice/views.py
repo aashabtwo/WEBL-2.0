@@ -10,7 +10,7 @@ from .submit import Code
 def problems(request):
     # query all problems
     all_problems = Problems.objects.all()
-    return render(request, 'practice/problems.html', {'problems': all_problems})
+    return render(request, 'practice/labexp.html', {'problems': all_problems})
 
 def oneProblem(request, pk):
     problem = Problems.objects.get(id=pk)
@@ -51,11 +51,11 @@ def oneProblem(request, pk):
                 context['test_results'] = result
                 context['form'] = form
                 context['judgement'] = judgement
-                return render(request, 'practice/index.html', context)
+                return render(request, 'practice/solve.html', context)
         else:
             form = SubmissionsForms()
         context['form'] = form    
-    return render(request, 'practice/index.html', context)
+    return render(request, 'practice/solve.html', context)
 
 """
 def uploadFile(request):

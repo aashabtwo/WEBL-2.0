@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>C Programming Lab</title>
 
-    <link rel="stylesheet" href="css/Clab.css">
+    <link rel="stylesheet" href="{% static 'lab/clab.css' %}">
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -71,8 +72,8 @@
                         
                         <div class="card-block text-center">
                           <h4 class="card-title text-center bg-light" ><a href="#" class="nav-link" id="card-title">Theory</a></h4>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary" id="button">Go to Lab</a>
+                          <p class="card-text">Understand the theory and fundamentals behind C.</p>
+                          <a href="{% url 'lab-exp1' %}" class="btn btn-primary" id="button">Go to Lab</a>
                       </div>
                       </div>
                   </div>
@@ -82,8 +83,8 @@
                         
                         <div class="card-block">
                           <h4 class="card-title bg-light"><a href="#" class="nav-link" id="card-title">Practice</a></h4>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary" id="button">Go to Lab</a>
+                          <p class="card-text">Practice coding problems on your own and sharpen you programming skills</p>
+                          <a href="{% url 'practice-problems' %}" class="btn btn-primary" id="button">Go to Lab</a>
                       </div>
                       </div>
                   </div>
@@ -94,8 +95,8 @@
                         
                         <div class="card-block">
                           <h4 class="card-title bg-light"><a href="#" class="nav-link" id="card-title">Assignment</a></h4>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary" id="button">Go to Lab</a>
+                          <p class="card-text">Solve and turn in the assignments and report given by your instructor.</p>
+                          <a href="{% url 'lab-lablist' %}" class="btn btn-primary" id="button">Go to Lab</a>
                       </div>
                       </div>
                   </div>

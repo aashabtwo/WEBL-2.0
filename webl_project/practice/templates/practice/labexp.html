@@ -1,0 +1,121 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab Experiment</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'lab/labexp.css' %}">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+    <header>
+
+    </header>
+          
+           <!-- Navigation img -->
+           
+           
+           <nav class="navbar navbar-expand-sm border-bottom shadow-sm nav1  p-3 ml-auto">
+            <div class="container-fluid">
+               
+              <a href="homepage.html" class="nav-link text-light">
+                <!-- Logo Image -->
+               <h2> C Programming Lab</h2> 
+                <!-- Logo Text -->
+                <!--<span class="text-uppercase font-weight-bold">Company</span>-->
+              </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+    
+              
+              <ul class="navbar-nav m-auto">
+                <li class="nav-item pl-2 active" style="border-right: 1.5px solid white">
+                  <a class="nav-link " href="#" id="nt">Lab Manual</a>
+                </li>
+                <li class="nav-item pl-2 " style="border-right: 1.5px solid white">
+                  <a class="nav-link" href="#" id="nt">Practice</a>
+                </li>
+                <li class="nav-item pl-2">
+                  <a class="nav-link " style="border-right: 1.5px solid white" href="#" id="nt">Lab Experiment</a>
+                </li>
+                <li class="nav-item pl-2">
+                    <a class="nav-link" href="#" id="nt">Quiz</a>
+                  </li> 
+                     
+              </ul>
+              
+              <a  href="#"><button class="btn btn-primary"><i class="fa fa-fw fa-home"></i> Home</button></a>
+            </div> 
+        </div>
+            
+        </nav>
+
+       
+   
+    <main>
+        
+        <div class="container my-2">
+          <h4 style="color: #003c62" class="border-bottom">Practice Problems:</h4>
+          {% for i in problems %}
+          
+              
+              <div>
+                    <h5 style="background: #003c62; color:#fff;" class="p-2 my-3">{{i.title}}</h5>
+              </div>
+              <div>
+                  <p>{{i.description}}</p>
+              </div>
+              <button class="btn" style="background: #003c62; color:#fff;"><a href={{i.id}} style="text-decoration: none; color:#fff;">Solve</a></button>
+              
+          <hr>
+          {% endfor %}
+        </div>
+        <!--
+        <div class="container my-2">
+           
+            <div>
+                  <h5 style="background: #003c62; color:#fff;" class="p-2 my-3">ASCII Decoder</h5>
+            </div>
+            <div>
+                <p>Difficulty: Medium</p>
+            </div>
+            <button class="btn" style="background: #003c62; color:#fff;" ><a href="#" style="text-decoration: none; color:#fff;">Solve</a></button>
+        </div>
+        </div>
+        <hr>
+        <div class="container my-2">
+           
+            <div>
+                  <h5 style="background: #003c62; color:#fff;" class="p-2 my-3">Type casting in C</h5>
+            </div>
+            <div>
+                <p>Difficulty: Medium</p>
+            </div>
+            <button class="btn" style="background: #003c62; color:#fff;"><a href="#" style="text-decoration: none; color:#fff;">Solve</a></button>
+        </div>
+        </div>
+      -->
+    </main>
+      
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: #003c62;">
+              © 2020 Copyright:
+              <a class="text-light" href="homepage.html">WebL</a>
+            </div>
+           
+    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

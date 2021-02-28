@@ -1,0 +1,49 @@
+body{
+    font-family: 'Poppins', sans-serif; 
+}
+#nt{
+    color: #003c62;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+}
+#nt:hover{
+    color:#003c62c9;
+}
+
+#lab{
+    margin-top:4em;
+}
+
+#log-in{
+    background-color: #003c62;
+    border:#003c62;
+    color:#fff;
+}
+#log-in:hover{
+    background-color: #003c62a9;
+}
+
+#card-title{
+    color:#003c62;
+}
+#cheading{
+    background-color: #003c62;
+    padding-left: 1em;
+
+}
+#button{
+    color:#fff;
+    background-color: #003c62;
+    border:#003c62;
+}
+#button:hover{
+    background-color: #003c62a9;
+}
+.footer{
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    color:#fff;
+}

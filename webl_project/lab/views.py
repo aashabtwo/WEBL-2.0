@@ -23,7 +23,9 @@ parent_path = os.path.abspath(os.path.join(path, os.pardir))
 assignment_submission_path = parent_path + '/webl_project/assignmentSubmissions/'
 
 
-
+# theory
+def theory(request):
+    return render(request, 'lab/exp1.html')
 
 # lab list
 def list(request):
@@ -32,21 +34,26 @@ def pick(request):
     return render(request, 'lab/Clab.html')
 
 
-
+# all problems
 def labProblems(request):
     # query all lab problems
+    accepted_submissions = AssignmentSubmissions.objects.filter(reviewed=True, approved=True)
+    rejected_submissions = AssignmentSubmissions.objects.filter(reviewed=True, approved=False)
     if request.user.is_authenticated:
         if request.user.position == 'Teacher':
             lab_problems = LabProblems.objects.all()
             context = {
-                'problems': lab_problems
+                'problems': lab_problems,
+                'accepted': accepted_submissions,
+                'rejected': rejected_submissions,
             }
-            return render(request, 'lab/problems.html', context)
+            return render(request, 'lab/labexp.html', context)
         else:
             return redirect('practice-problems')
     else:
         return redirect('users-dashboard')
 
+# checks one problem
 def labOneProblem(request, pk):
     problem = LabProblems.objects.get(id=pk)
     context = {
@@ -64,7 +71,7 @@ def labOneProblem(request, pk):
         assignment.save()
         return render(request, 'lab/problems.html', context)
     else:
-        return render(request, 'practice/index.html', context)
+        return render(request, 'lab/solve.html', context)
 
 # for teachers to see the submissions
 def submittedAssignments(request):
@@ -155,7 +162,7 @@ def labAssignments(request):
                 print(sub.problem.title)
             for s in rejected_submissions:
                 print(s.teachers_remarks)
-            return render(request, 'lab/assignment.html', context)
+            return render(request, 'lab/labexp.html', context)
         else:
             return redirect('lab-labproblems')
     else:
@@ -191,7 +198,7 @@ def oneAssignment(request, pk):
                     form = AssignmentSubmissionsForm()
                 # adding form
                 context['form'] = form
-                return render(request, 'lab/submit.html', context)
+                return render(request, 'lab/solve.html', context)
             else:
                 return HttpResponse('There is no such page. Sorry')
         else:
@@ -202,6 +209,16 @@ def oneAssignment(request, pk):
         # redirect to login
         messages.success(request, 'You need to login to first.')
         return redirect('user-login')
+
+
+
+
+
+
+
+
+
+
 
 # CHECKING REJECTED SUBMISSIONS
 # for students
